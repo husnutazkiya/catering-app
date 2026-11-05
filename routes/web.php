@@ -1,0 +1,74 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+Auth::routes();
+
+// Mode Scan QR Meja & Menu Digital (Dapat Diakses Tamu Tanpa Perlu Login)
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+Route::get('/scan', 'HomeController@scanTable')->name('scanTable');
+
+// Pemesanan & Keranjang Belanja (Bisa untuk Tamu Scan QR Meja maupun Member Login)
+Route::get('/order/{id}', 'OrderController@getOrder')->name('getOrder');
+Route::post('/order', 'OrderController@postOrder')->name('postOrder');
+Route::get('/cart', 'OrderController@viewCart')->name('viewCart');
+Route::post('/cart/add', 'OrderController@addToCart')->name('addToCart');
+Route::post('/cart/update', 'OrderController@updateCart')->name('updateCart');
+Route::post('/cart/remove', 'OrderController@removeFromCart')->name('removeFromCart');
+Route::post('/cart/checkout', 'OrderController@checkoutCart')->name('checkoutCart'); 
+Route::get('/order-success', 'OrderController@successOrder')->name('successOrder'); 
+
+// Khusus Member Login (Profil Member & Riwayat Pesanan Akun)
+Route::group(['middleware' => ['auth', 'role:customer']], function () {
+	Route::resource('/profile', 'ProfileController');
+	Route::get('/order-list', 'OrderController@listOrder')->name('listOrder');
+	Route::get('/order/{id}/detail', 'OrderController@detailOrder')->name('detailOrder');
+	Route::post('/order/{id}/cancel', 'OrderController@cancelOrder')->name('cancelOrder');
+});
+
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+	Route::get('/login', 'LoginController@showLoginForm')->name('getLogin');
+	Route::post('/login', 'LoginController@login')->name('postLogin');
+	Route::post('/logout', 'LoginController@logout')->name('logout-admin');
+	Route::group(['middleware' => ['role:admin']], function () {
+
+		Route::get('/', 'HomeController@index');
+		Route::get('/blank', 'HomeController@blank');
+		Route::get('/404', function () {
+			return view('dashboard.404');
+		})->name('404');
+
+		// Order Route
+		Route::get('/order/all', 'OrderController@index')->name('all-order');
+		Route::get('/order/pending', 'OrderController@pending')->name('pending-order');
+		Route::get('/order/{id}/detail', 'OrderController@detail')->name('detail-order');
+		Route::post('/order/{id}/verify', 'OrderController@verify')->name('verify-order');
+		Route::post('/order/{id}/remove', 'OrderController@remove')->name('remove-order');
+
+		// Customer Route
+		Route::resource('customer', 'CustomerController');
+
+		// Menu Route
+		Route::resource('food-menu', 'MenuController');
+
+		// Expense / Belanja Route
+		Route::post('/expense/store', 'ExpenseController@store')->name('expense.store');
+		Route::delete('/expense/{id}/destroy', 'ExpenseController@destroy')->name('expense.destroy');
+
+		// QR Code Meja untuk Meja Restoran / Dine-In
+		Route::get('/tables-qr', 'HomeController@tablesQr')->name('tablesQr');
+	});
+});
+

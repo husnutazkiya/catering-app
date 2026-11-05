@@ -1,0 +1,104 @@
+/* Global Custom Style - Theme SEKALORI Kitchen & Catering */
+:root {
+    --sekalori-green: #22714e;
+    --sekalori-green-hover: #185538;
+    --sekalori-green-active: #13452d;
+    --sekalori-green-light: #eaf5ee;
+    --sekalori-green-border: #a0d4ba;
+}
+
+/* Override Tombol Utama (btn-primary & btn-sekalori) dengan Warna Hijau Logo */
+.btn-primary, 
+.btn-sekalori {
+    background-color: #22714e !important;
+    border-color: #1b5b3f !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active,
+.btn-sekalori:hover, 
+.btn-sekalori:focus, 
+.btn-sekalori:active {
+    background-color: #185538 !important;
+    border-color: #13452d !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(34, 113, 78, 0.25) !important;
+}
+
+/* Tombol Outline Hijau */
+.btn-sekalori-outline {
+    background-color: #ffffff !important;
+    border: 2px solid #22714e !important;
+    color: #22714e !important;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-sekalori-outline:hover, 
+.btn-sekalori-outline:focus {
+    background-color: #eaf5ee !important;
+    border-color: #185538 !important;
+    color: #185538 !important;
+}
+
+/* Text and Badge Brand Color */
+.text-primary, 
+.text-sekalori {
+    color: #22714e !important;
+}
+
+.badge-sekalori {
+    background-color: #22714e !important;
+    color: #ffffff !important;
+}
+
+/* Focus input form border */
+.form-control:focus {
+    border-color: #22714e !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(34, 113, 78, 0.3) !important;
+}
+
+/* Navbar Brand Styling */
+.navbar-default .navbar-brand {
+    color: #22714e !important;
+    font-weight: 800;
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #22714e !important;
+    background-color: #eaf5ee !important;
+}
+
+/* Panel and Card Styles */
+.panel h3 {
+	font-weight: bold;
+}
+
+.panel h4 {
+	margin-top: 0;
+	font-weight: bold;
+}
+
+.card .panel-heading {
+	padding: 0;
+}
+
+.card .panel-heading img {
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.card hr {
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+.page-header {
+	margin: 0 0 22px;
+}
