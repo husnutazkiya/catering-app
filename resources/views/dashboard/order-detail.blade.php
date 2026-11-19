@@ -11,8 +11,8 @@
             <div style="font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700;">Tipe Pemesanan:</div>
             <div style="font-size: 14px; font-weight: 800; margin-top: 4px;">
                 @if ($order->table_no)
-                    <span class="label" style="background-color: #22714e; font-size: 12px;">
-                        <i class="fa fa-cutlery"></i> Makan di Tempat ({{ $order->table_no }})
+                    <span class="label" style="background-color: #5a351b; font-size: 12px;">
+                        <i class="fa fa-coffee"></i> Makan di Tempat ({{ $order->table_no }})
                     </span>
                 @elseif ($order->delivery == 1)
                     <span class="label label-warning" style="font-size: 12px;">

@@ -14,15 +14,15 @@
     .check-icon-circle {
         width: 76px;
         height: 76px;
-        background: #eaf5ee;
-        color: #22714e;
+        background: #f7f2ec;
+        color: #5a351b;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         font-size: 38px;
         margin-bottom: 18px;
-        border: 3px solid #bbf0d0;
+        border: 3px solid #dfcfbe;
     }
     .receipt-box {
         background: #f8fafc;
@@ -98,7 +98,7 @@
                     Pesanan Berhasil Dibuat!
                 </h2>
                 <p style="color: #64748b; font-size: 15px; margin-bottom: 10px;">
-                    Terima kasih telah memesan di <strong>SEKALORI kitchen & catering</strong>.
+                    Terima kasih telah memesan di <strong>SEKA Warkop & Cafe</strong>.
                 </p>
 
                 @if (!empty($lastOrder))
@@ -106,15 +106,15 @@
                     <div class="receipt-box">
                         <div class="receipt-header">
                             <div>
-                                <span style="font-size: 11px; text-transform: uppercase; font-weight: 800; color: #22714e; letter-spacing: 0.5px;">
-                                    SEKALORI KITCHEN & CATERING
+                                <span style="font-size: 11px; text-transform: uppercase; font-weight: 800; color: #5a351b; letter-spacing: 1px;">
+                                    SEKA WARKOP & CAFE
                                 </span>
-                                <h4 style="margin: 2px 0 0 0; font-weight: 800; color: #0f172a;">
-                                    Bukti Pemesanan Makanan
+                                <h4 style="margin: 2px 0 0 0; font-weight: 800; color: #2c180e;">
+                                    Bukti Pemesanan Meja
                                 </h4>
                             </div>
                             <span class="label label-warning" style="font-size: 12px; padding: 6px 10px; border-radius: 6px;">
-                                <i class="fa fa-clock-o"></i> Menunggu Konfirmasi Dapur
+                                <i class="fa fa-clock-o"></i> Menunggu Konfirmasi Barista
                             </span>
                         </div>
 
@@ -127,8 +127,8 @@
                             <span class="receipt-row-title">Tipe Pemesanan:</span>
                             <span class="receipt-row-value">
                                 @if ($lastOrder['order_type'] == 'dine_in')
-                                    <span class="badge" style="background-color: #22714e; font-size: 12px;">
-                                        <i class="fa fa-cutlery"></i> Makan di Tempat ({{ $lastOrder['table_no'] ?: 'Meja' }})
+                                    <span class="badge" style="background-color: #5a351b; font-size: 12px;">
+                                        <i class="fa fa-coffee"></i> Makan di Tempat ({{ $lastOrder['table_no'] ?: 'Meja' }})
                                     </span>
                                 @elseif ($lastOrder['order_type'] == 'takeaway')
                                     <span class="badge" style="background-color: #2563eb; font-size: 12px;">
@@ -197,14 +197,14 @@
 
                     {{-- Informasi Ramah Tamu / Dine-in --}}
                     @if ($lastOrder['order_type'] == 'dine_in')
-                        <div style="background: #eaf5ee; border-radius: 8px; padding: 12px 18px; margin: 15px auto; max-width: 580px; font-size: 13px; color: #185538; text-align: left;">
-                            <i class="fa fa-info-circle text-primary" style="margin-right: 5px;"></i>
-                            <strong>Makan di Tempat:</strong> Pesanan Anda telah diterima dapur katering. Silakan duduk santai di <strong>{{ $lastOrder['table_no'] }}</strong>, makanan akan diantar langsung ke meja Anda.
+                        <div style="background: #f7f2ec; border: 1px solid #dfcfbe; border-radius: 8px; padding: 12px 18px; margin: 15px auto; max-width: 580px; font-size: 13px; color: #5a351b; text-align: left;">
+                            <i class="fa fa-coffee text-primary" style="margin-right: 5px;"></i>
+                            <strong>Makan/Minum di Tempat:</strong> Pesanan Anda telah diterima barista/dapur SEKA. Silakan duduk santai di <strong>{{ $lastOrder['table_no'] }}</strong>, pesanan akan segera diantar ke meja Anda.
                         </div>
                     @else
                         <div style="background: #eff6ff; border-radius: 8px; padding: 12px 18px; margin: 15px auto; max-width: 580px; font-size: 13px; color: #1e40af; text-align: left;">
                             <i class="fa fa-info-circle text-info" style="margin-right: 5px;"></i>
-                            Pesanan Anda sedang dalam antrean verifikasi tim Sekalori. Kami akan segera menghubungi atau menyiapkan pesanan sesuai jadwal.
+                            Pesanan Anda sedang dalam antrean tim SEKA Warkop & Cafe. Kami akan segera menyiapkan pesanan Anda.
                         </div>
                     @endif
                 @else

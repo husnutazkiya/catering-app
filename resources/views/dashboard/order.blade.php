@@ -70,8 +70,8 @@
                                                 <i class="fa fa-user text-primary"></i> {{ $order->user->name }}
                                             </a>
                                         @else
-                                            <span class="label" style="background-color: #22714e; font-size: 11px;">
-                                                <i class="fa fa-qrcode"></i> {{ $order->table_no ?: 'Tamu (QR)' }}
+                                            <span class="label" style="background-color: #5a351b; font-size: 11px;">
+                                                <i class="fa fa-coffee"></i> {{ $order->table_no ?: 'Tamu (QR)' }}
                                             </span>
                                             <br><small style="color: #64748b; font-weight: 600;">{{ $order->customer_name }}</small>
                                         @endif

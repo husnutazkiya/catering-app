@@ -86,22 +86,22 @@ $kernel->terminate($request, $response);
 
 # Template .env untuk InfinityFree
 $envTemplate = @'
-APP_NAME=Sekalori
+APP_NAME="SEKA Warkop & Cafe"
 APP_ENV=production
 APP_KEY=base64:XG8d2Lq1m3o9Z9kL4jP5wR8tY1uI3oP5aS7dF9gH1jK=
 APP_DEBUG=false
-APP_URL=http://YOUR_SUBDOMAIN.infinityfreeapp.com
+APP_URL=http://sekalori.rf.gd
 
 LOG_CHANNEL=stack
 LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=sqlxxx.infinityfree.com
+DB_HOST=sql103.infinityfree.com
 DB_PORT=3306
-DB_DATABASE=epiz_xxxxxxx_ecatering
-DB_USERNAME=epiz_xxxxxxx
-DB_PASSWORD=YOUR_CPANEL_PASSWORD
+DB_DATABASE=if0_43362984_ecatering
+DB_USERNAME=if0_43362984
+DB_PASSWORD=jmsh7VFy9rzy6
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file

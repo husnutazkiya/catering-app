@@ -1,6 +1,6 @@
 <footer class="main-footer">
 	<div class="pull-right hidden-xs">
-		<b>Version</b> 1.0.0
+		<b>SEKA</b> Warkop & Cafe
 	</div>
-	<strong>Copyright &copy; 2017 <a href="https://facebook.com/caesaralilamondo" target="_blank">KATERING APP</a>.</strong> in Makassar, Indonesia.
+	<strong>Copyright &copy; {{ date('Y') }} <a href="{{ url('/') }}" style="color: #5a351b; font-weight: 700;">SEKA Warkop & Cafe</a>.</strong> All rights reserved.
 </footer>

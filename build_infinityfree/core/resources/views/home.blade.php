@@ -31,8 +31,8 @@
     }
     .menu-card-compact:hover {
         transform: translateY(-3px);
-        box-shadow: 0 6px 16px rgba(34, 113, 78, 0.15);
-        border-color: #22714e;
+        box-shadow: 0 6px 16px rgba(90, 53, 27, 0.18);
+        border-color: #5a351b;
     }
 
     /* Area Gambar Menu */
@@ -110,8 +110,8 @@
         color: #94a3b8;
     }
     .btn-detail-order {
-        background-color: #22714e !important;
-        border-color: #1b5b3f !important;
+        background-color: #5a351b !important;
+        border-color: #4a2913 !important;
         color: #ffffff !important;
         border-radius: 6px;
         font-weight: 600;
@@ -122,10 +122,10 @@
     .btn-detail-order:hover, 
     .btn-detail-order:focus, 
     .btn-detail-order:active {
-        background-color: #185538 !important;
-        border-color: #13452d !important;
+        background-color: #432410 !important;
+        border-color: #331908 !important;
         color: #ffffff !important;
-        box-shadow: 0 4px 10px rgba(34, 113, 78, 0.3) !important;
+        box-shadow: 0 4px 10px rgba(90, 53, 27, 0.3) !important;
     }
 
     /* Tab Pilihan Kategori (Makanan & Minuman) */
@@ -148,29 +148,29 @@
         text-decoration: none !important;
         transition: all 0.2s ease-in-out;
         white-space: nowrap;
-        border: 1.5px solid #e2e8f0;
-        background: #f8fafc;
-        color: #475569;
+        border: 1.5px solid #dfcfbe;
+        background: #fdfbf8;
+        color: #5a351b;
         cursor: pointer;
         box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
     .category-tab-btn:hover {
-        background: #eaf5ee;
-        border-color: #22714e;
-        color: #22714e;
+        background: #f7f2ec;
+        border-color: #5a351b;
+        color: #432410;
     }
     .category-tab-btn.active {
-        background: #22714e !important;
-        border-color: #22714e !important;
+        background: #5a351b !important;
+        border-color: #5a351b !important;
         color: #ffffff !important;
-        box-shadow: 0 4px 14px rgba(34, 113, 78, 0.3) !important;
+        box-shadow: 0 4px 14px rgba(90, 53, 27, 0.3) !important;
     }
     .category-tab-btn .tab-count {
         font-size: 11px;
         padding: 2px 7px;
         border-radius: 12px;
-        background: #e2e8f0;
-        color: #475569;
+        background: #ebdccb;
+        color: #5a351b;
         font-weight: 800;
         transition: all 0.2s ease;
     }
@@ -192,11 +192,11 @@
         box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
     .badge-cat-makanan {
-        background: rgba(34, 113, 78, 0.9);
+        background: rgba(90, 53, 27, 0.9);
         color: #ffffff;
     }
     .badge-cat-minuman {
-        background: rgba(14, 116, 144, 0.9);
+        background: rgba(197, 137, 64, 0.95);
         color: #ffffff;
     }
 
@@ -265,23 +265,23 @@
 
             {{-- Banner Mode Meja (Scan QR Code Tanpa Login) --}}
             @if (session('table_no'))
-                <div style="background: linear-gradient(135deg, #eaf5ee 0%, #d8eee1 100%); border: 1.5px solid #22714e; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; box-shadow: 0 4px 12px rgba(34,113,78,0.12);">
+                <div style="background: linear-gradient(135deg, #f7f2ec 0%, #efe5d8 100%); border: 1.5px solid #5a351b; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; box-shadow: 0 4px 12px rgba(90,53,27,0.12);">
                     <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                        <div style="background: #22714e; color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-right: 14px; flex-shrink: 0;">
-                            <i class="fa fa-qrcode"></i>
+                        <div style="background: #5a351b; color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-right: 14px; flex-shrink: 0;">
+                            <i class="fa fa-coffee"></i>
                         </div>
                         <div>
-                            <div style="font-size: 13px; color: #185538; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Mode Makan di Tempat (Dine-In)</div>
-                            <div style="font-size: 16px; font-weight: 800; color: #1e293b;">
-                                Anda memesan dari: <span style="background: #22714e; color: #ffffff; padding: 3px 10px; border-radius: 6px; font-size: 15px;">{{ session('table_no') }}</span>
+                            <div style="font-size: 13px; color: #5a351b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Mode Makan di Tempat (Dine-In)</div>
+                            <div style="font-size: 16px; font-weight: 800; color: #2c180e;">
+                                Anda memesan dari: <span style="background: #5a351b; color: #ffffff; padding: 3px 10px; border-radius: 6px; font-size: 15px;">{{ session('table_no') }}</span>
                             </div>
-                            <div style="font-size: 12px; color: #475569; margin-top: 2px;">
+                            <div style="font-size: 12px; color: #785e4f; margin-top: 2px;">
                                 <i class="fa fa-check text-success"></i> Pesan langsung tanpa perlu login. Pesanan akan diantar ke meja Anda!
                             </div>
                         </div>
                     </div>
                     <div>
-                        <a href="{{ url('/home?clear_table=1') }}" class="btn btn-default btn-sm" style="font-weight: 600; color: #ef4444; border-color: #cbd5e1; margin-top: 5px;">
+                        <a href="{{ url('/home?clear_table=1') }}" class="btn btn-default btn-sm" style="font-weight: 600; color: #c0392b; border-color: #dfcfbe; margin-top: 5px;">
                             <i class="fa fa-times-circle"></i> Ganti Meja / Mode Luar
                         </a>
                     </div>
@@ -289,12 +289,12 @@
             @endif
 
             {{-- Header Title --}}
-            <div style="margin-bottom: 16px; border-bottom: 2px solid #eaedf2; padding-bottom: 12px;">
-                <h2 style="font-weight: 800; color: #1e293b; margin: 0 0 6px 0; font-size: 22px;">
-                    <i class="fa fa-cutlery text-primary" style="margin-right: 8px;"></i>Daftar Menu Katering
+            <div style="margin-bottom: 16px; border-bottom: 2px solid #ebdccb; padding-bottom: 12px;">
+                <h2 style="font-weight: 800; color: #2c180e; margin: 0 0 6px 0; font-size: 22px;">
+                    <i class="fa fa-coffee text-primary" style="margin-right: 8px;"></i>Daftar Menu SEKA Warkop & Cafe
                 </h2>
-                <p style="color: #64748b; font-size: 14px; margin: 0;">
-                    Pilih menu favorit Anda dan klik untuk melihat detail lengkap serta pilihan add-ons.
+                <p style="color: #785e4f; font-size: 14px; margin: 0;">
+                    Pilih aneka kopi, minuman segar, dan hidangan makanan favorit Anda.
                 </p>
             </div>
 
@@ -303,7 +303,7 @@
                 <a href="{{ url('/home?' . http_build_query(array_merge(request()->except('page', 'category'), ['category' => 'all']))) }}" 
                    class="category-tab-btn {{ $activeCategory === 'all' ? 'active' : '' }}" 
                    data-cat="all">
-                    <span>🍽️ Semua Menu</span>
+                    <span>☕ Semua Menu</span>
                     <span class="tab-count">{{ $countAll }}</span>
                 </a>
                 
@@ -317,7 +317,7 @@
                 <a href="{{ url('/home?' . http_build_query(array_merge(request()->except('page', 'category'), ['category' => 'minuman']))) }}" 
                    class="category-tab-btn {{ $activeCategory === 'minuman' ? 'active' : '' }}" 
                    data-cat="minuman">
-                    <span>🥤 Minuman</span>
+                    <span>🥤 Kopi & Minuman</span>
                     <span class="tab-count">{{ $countMinuman }}</span>
                 </a>
             </div>
@@ -331,10 +331,15 @@
                                 {{-- Thumbnail Gambar --}}
                                 <div class="menu-img-wrap">
                                     <a href="{{ route('getOrder', $menu->id) }}">
-                                        @if ($menu->pict && file_exists(public_path('assets/pictures/menu/' . $menu->pict)))
-                                            <img src="{{ asset('assets/pictures/menu/' . $menu->pict) }}" alt="{{ $menu->name }}" class="menu-img">
+                                        @if ($menu->pict)
+                                            <img src="{{ asset('assets/pictures/menu/' . $menu->pict) }}" 
+                                                alt="{{ $menu->name }}" 
+                                                class="menu-img"
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/pictures/profile.jpg') }}';">
                                         @else
-                                            <img src="{{ asset('assets/pictures/profile.jpg') }}" alt="{{ $menu->name }}" class="menu-img">
+                                            <img src="{{ asset('assets/pictures/profile.jpg') }}" 
+                                                alt="{{ $menu->name }}" 
+                                                class="menu-img">
                                         @endif
                                     </a>
                                     

@@ -100,6 +100,6 @@ class HomeController extends Controller
         $table = $request->get('table', 'Meja 01');
         session(['table_no' => $table]);
         
-        return redirect()->route('home')->with('info', '🍽️ Selamat datang! Anda terhubung ke ' . $table . '. Silakan pilih menu dan pesan langsung tanpa perlu login.');
+        return redirect()->route('home');
     }
 }

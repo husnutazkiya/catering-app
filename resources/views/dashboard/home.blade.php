@@ -32,10 +32,10 @@
         color: #1e293b;
     }
     .btn-period-pill.active {
-        background: #22714e !important;
-        border-color: #1b5b3f !important;
+        background: #5a351b !important;
+        border-color: #432410 !important;
         color: #ffffff !important;
-        box-shadow: 0 2px 6px rgba(34, 113, 78, 0.3);
+        box-shadow: 0 2px 6px rgba(90, 53, 27, 0.3);
     }
 
     /* Kartu Metrik Finansial */
@@ -85,8 +85,8 @@
     }
 
     /* Varian Warna */
-    .theme-green { color: #22714e; }
-    .bg-soft-green { background: #eaf5ee; color: #22714e; }
+    .theme-green { color: #5a351b; }
+    .bg-soft-green { background: #f7f2ec; color: #5a351b; }
 
     .theme-rose { color: #e11d48; }
     .bg-soft-rose { background: #ffe4e6; color: #e11d48; }
@@ -94,8 +94,8 @@
     .theme-blue { color: #0284c7; }
     .bg-soft-blue { background: #e0f2fe; color: #0284c7; }
 
-    .theme-amber { color: #d97706; }
-    .bg-soft-amber { background: #fef3c7; color: #d97706; }
+    .theme-amber { color: #c58940; }
+    .bg-soft-amber { background: #fdf6ec; color: #c58940; }
 
     /* List Belanja */
     .expense-item {
@@ -132,8 +132,8 @@
         color: #64748b;
     }
     .btn-chart-mode.active {
-        background: #22714e;
-        border-color: #22714e;
+        background: #5a351b;
+        border-color: #5a351b;
         color: #ffffff;
     }
 </style>
@@ -143,9 +143,9 @@
 <div class="content-wrapper">
     {{-- Header Halaman --}}
     <section class="content-header" style="padding-top: 20px; padding-bottom: 12px;">
-        <h1 style="font-weight: 800; color: #1e293b; margin: 0; font-size: 24px;">
-            <i class="fa fa-dashboard text-primary" style="margin-right: 8px;"></i>Ringkasan Bisnis & Finansial
-            <small style="font-size: 14px; color: #64748b;">Sekalori Kitchen & Catering</small>
+        <h1 style="font-weight: 800; color: #2c180e; margin: 0; font-size: 24px;">
+            <i class="fa fa-dashboard" style="color: #5a351b; margin-right: 8px;"></i>Ringkasan Bisnis & Finansial
+            <small style="font-size: 14px; color: #785e4f;">SEKA Warkop & Cafe</small>
         </h1>
     </section>
 
@@ -160,8 +160,8 @@
         {{-- BARIS FILTER PERIODE (HARI INI / MINGGU INI / BULAN INI / SEMUA WAKTU) --}}
         <div class="period-filter-bar">
             <div style="display: flex; align-items: center; margin-bottom: 6px;">
-                <span style="font-weight: 700; color: #1e293b; margin-right: 12px; font-size: 14px;">
-                    <i class="fa fa-filter text-primary"></i> Periode Tinjauan:
+                <span style="font-weight: 700; color: #2c180e; margin-right: 12px; font-size: 14px;">
+                    <i class="fa fa-filter" style="color: #5a351b;"></i> Periode Tinjauan:
                 </span>
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-period-pill active" data-period="today">
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div style="margin-bottom: 6px;">
-                <span id="periodLabelBadge" class="label" style="background-color: #eaf5ee; color: #22714e; font-size: 12px; padding: 6px 12px; border-radius: 12px; font-weight: 700; border: 1px solid #a0d4ba;">
+                <span id="periodLabelBadge" class="label" style="background-color: #f7f2ec; color: #5a351b; font-size: 12px; padding: 6px 12px; border-radius: 12px; font-weight: 700; border: 1px solid #dfcfbe;">
                     <i class="fa fa-clock-o"></i> {{ $financeStats['today']['label'] }}
                 </span>
             </div>
@@ -450,7 +450,7 @@
 <div class="modal fade" id="modalAddExpense" tabindex="-1" role="dialog" aria-labelledby="modalAddExpenseLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="border-radius: 10px; overflow: hidden;">
-            <div class="modal-header" style="background-color: #22714e; color: #ffffff;">
+            <div class="modal-header" style="background-color: #5a351b; color: #ffffff;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff; opacity: 0.9;">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -589,8 +589,8 @@
                         {
                             label: 'Pendapatan (Revenue)',
                             data: initial.revenues,
-                            backgroundColor: 'rgba(34, 113, 78, 0.85)',
-                            borderColor: '#22714e',
+                            backgroundColor: 'rgba(90, 53, 27, 0.85)',
+                            borderColor: '#5a351b',
                             borderWidth: 1.5,
                             borderRadius: 4
                         },

@@ -42,10 +42,13 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image & Logo -->
-                    <a class="navbar-brand" href="{{ url('/home') }}" style="display: flex; align-items: center; padding-top: 10px; padding-bottom: 10px;">
-                        <img src="{{ asset('assets/pictures/logo-sekalori.jpg') }}" alt="Sekalori Logo" style="height: 30px; margin-right: 8px; border-radius: 4px; display: inline-block;">
-                        <span style="color: #22714e; font-weight: 800; font-size: 18px; letter-spacing: 0.5px;">SEKALORI</span>
+                    <!-- Branding Image & Logo SEKA Warkop & Cafe -->
+                    <a class="navbar-brand" href="{{ url('/home') }}" style="display: flex; align-items: center; padding-top: 8px; padding-bottom: 8px;">
+                        <img src="{{ asset('assets/pictures/logo-seka.jpg') }}" alt="SEKA Warkop & Cafe" style="height: 38px; width: 38px; object-fit: cover; margin-right: 10px; border-radius: 50%; border: 1.5px solid #5a351b; display: inline-block;">
+                        <div style="line-height: 1.15;">
+                            <span style="color: #5a351b; font-weight: 900; font-size: 19px; letter-spacing: 2px;">SEKA</span>
+                            <small style="display: block; font-size: 9px; font-weight: 700; color: #8c6f5d; letter-spacing: 1.5px;">WARKOP & CAFE</small>
+                        </div>
                     </a>
                 </div>
 
@@ -58,9 +61,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         @if (session('table_no'))
                             <li>
-                                <a href="{{ url('/home') }}" style="color: #22714e; font-weight: 700;">
-                                    <span class="label" style="background-color: #22714e; font-size: 12px; padding: 5px 10px; border-radius: 12px;">
-                                        <i class="fa fa-cutlery"></i> {{ session('table_no') }}
+                                <a href="{{ url('/home') }}" style="color: #5a351b; font-weight: 700;">
+                                    <span class="label" style="background-color: #5a351b; font-size: 12px; padding: 5px 10px; border-radius: 12px;">
+                                        <i class="fa fa-coffee"></i> {{ session('table_no') }}
                                     </span>
                                 </a>
                             </li>
@@ -73,7 +76,7 @@
                                 <i class="fa fa-shopping-cart text-primary" aria-hidden="true" style="margin-right: 4px"></i> 
                                 <strong>Keranjang</strong>
                                 @if ($cartCount > 0)
-                                    <span class="badge" style="background-color: #22714e; vertical-align: middle;">{{ $cartCount }}</span>
+                                    <span class="badge" style="background-color: #5a351b; vertical-align: middle;">{{ $cartCount }}</span>
                                 @endif
                             </a>
                         </li>

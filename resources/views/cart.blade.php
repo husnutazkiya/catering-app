@@ -181,10 +181,10 @@
 
                         @if (session('table_no'))
                             <input type="hidden" name="table_no" value="{{ session('table_no') }}">
-                            <div style="background: #eaf5ee; border: 1px solid #bbf0d0; border-radius: 8px; padding: 10px 14px; margin-bottom: 15px;">
-                                <div style="font-size: 11px; font-weight: 700; color: #185538; text-transform: uppercase;">Lokasi Meja:</div>
-                                <div style="font-size: 15px; font-weight: 800; color: #22714e;">
-                                    <i class="fa fa-cutlery"></i> {{ session('table_no') }} (Makan di Tempat)
+                            <div style="background: #f7f2ec; border: 1.5px solid #dfcfbe; border-radius: 8px; padding: 10px 14px; margin-bottom: 15px;">
+                                <div style="font-size: 11px; font-weight: 700; color: #5a351b; text-transform: uppercase;">Lokasi Meja:</div>
+                                <div style="font-size: 15px; font-weight: 800; color: #5a351b;">
+                                    <i class="fa fa-coffee"></i> {{ session('table_no') }} (Makan / Minum di Tempat)
                                 </div>
                             </div>
                         @endif
@@ -211,13 +211,13 @@
                         {{-- Form Tipe Pesanan --}}
                         <div class="form-group">
                             <label style="font-weight: 700; color: #1e293b;">
-                                <i class="fa fa-cutlery text-primary"></i> Cara Pemesanan / Pengambilan:
+                                <i class="fa fa-coffee text-primary"></i> Cara Pemesanan / Pengambilan:
                             </label>
                             <div>
                                 @if (session('table_no'))
                                     <label class="radio" style="font-weight: normal; margin-bottom: 6px;">
                                         <input type="radio" name="order_type_option" value="dine_in" checked id="typeDineIn">
-                                        <strong style="color: #22714e;"><i class="fa fa-cutlery"></i> Makan di Tempat ({{ session('table_no') }})</strong>
+                                        <strong style="color: #5a351b;"><i class="fa fa-coffee"></i> Makan di Tempat ({{ session('table_no') }})</strong>
                                     </label>
                                     <label class="radio" style="font-weight: normal; margin-bottom: 6px;">
                                         <input type="radio" name="order_type_option" value="takeaway" id="typeTakeaway">

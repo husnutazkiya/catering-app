@@ -2,8 +2,9 @@
     <a href="{{ url('/admin') }}" class="logo">
         <span class="logo-mini"><b>S</b>K</span>
         <span class="logo-lg" style="display: flex; align-items: center; justify-content: center; height: 50px;">
-            <img src="{{ asset('assets/pictures/logo-sekalori.jpg') }}" alt="Sekalori" style="height: 28px; border-radius: 3px; vertical-align: middle; margin-right: 8px;">
-            <b>SEKALORI</b>
+            <img src="{{ asset('assets/pictures/logo-seka.jpg') }}" alt="SEKA" style="height: 30px; width: 30px; object-fit: cover; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); vertical-align: middle; margin-right: 8px;">
+            <b style="letter-spacing: 1.5px;">SEKA</b>
+            <small style="font-size: 10px; opacity: 0.9; margin-left: 5px; font-weight: 600; letter-spacing: 1px;">WARKOP</small>
         </span>
     </a>
 
@@ -15,7 +16,7 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href="{{ url('/home') }}" target="_blank" title="Buka Halaman Customer">
-                        <i class="fa fa-external-link" style="margin-right: 4px;"></i> <span class="hidden-xs">Lihat Toko Customer</span>
+                        <i class="fa fa-coffee" style="margin-right: 4px;"></i> <span class="hidden-xs">Lihat Menu Warkop</span>
                     </a>
                 </li>
                 <li class="dropdown user user-menu">
@@ -24,11 +25,11 @@
                         <span class="hidden-xs">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="user-header" style="background-color: #22714e !important;">
+                        <li class="user-header" style="background-color: #5a351b !important;">
                             <img src="{{ asset('assets/pictures/profile.jpg') }}" class="img-circle" alt="User Image">
                             <p>
                                 {{ Auth::user()->name }}
-                                <br><small>Admin Sekalori Catering</small>
+                                <br><small>Admin SEKA Warkop & Cafe</small>
                             </p>
                         </li>
                         <li class="user-footer">

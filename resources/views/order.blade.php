@@ -38,13 +38,13 @@
         justify-content: space-between;
     }
     .addon-card:hover {
-        background: #f4faf6;
-        border-color: #22714e;
+        background: #fdfbf8;
+        border-color: #5a351b;
     }
     .addon-card.selected {
-        background: #eaf5ee;
-        border-color: #22714e;
-        box-shadow: 0 2px 6px rgba(34, 113, 78, 0.18);
+        background: #f7f2ec;
+        border-color: #5a351b;
+        box-shadow: 0 2px 6px rgba(90, 53, 27, 0.2);
     }
     .addon-checkbox {
         transform: scale(1.3);
@@ -70,8 +70,8 @@
             <i class="fa fa-arrow-left"></i> Kembali ke Daftar Menu
         </a>
         @if (session('table_no'))
-            <span class="label" style="background-color: #22714e; font-size: 13px; padding: 6px 12px; border-radius: 14px; margin-top: 5px;">
-                <i class="fa fa-cutlery"></i> Makan di Tempat: {{ session('table_no') }}
+            <span class="label" style="background-color: #5a351b; font-size: 13px; padding: 6px 12px; border-radius: 14px; margin-top: 5px;">
+                <i class="fa fa-coffee"></i> Makan di Tempat: {{ session('table_no') }}
             </span>
         @endif
     </div>
