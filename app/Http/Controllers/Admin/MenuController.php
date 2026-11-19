@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\Controller;
 use App\Menu;
 use File;
@@ -17,7 +18,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::orderBy('created_at', 'DESC')->paginate(6);
+        $menus = Menu::orderBy('created_at', 'DESC')->paginate(9);
         return view('dashboard.menu', compact('menus'));
     }
 
@@ -39,30 +40,27 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        // return dd(str_replace(".", "", $request->price));
+        $hasCategory = Schema::hasColumn('menu', 'category');
+        $menu = new Menu;
+        $menu->name = $request->name;
+        $menu->price = str_replace(".", "", $request->price);
+        $menu->description = $request->description;
+        $menu->min_order = $request->min_order ?: 1;
+
+        if ($hasCategory) {
+            $menu->category = $request->get('category', 'makanan');
+        }
+
         if ($request->hasFile('pict') && $request->file('pict')->isValid()) {
-            // Uploading
             $extension = $request->pict->extension();
             $filename = md5(time()) . '.' . $extension;
             $path = public_path('assets/pictures/menu');
-            $store = $request->pict->move($path, $filename);
-            // Saving
-            $menu = new Menu;
-            $menu->name = $request->name;
-            $menu->price = str_replace(".", "", $request->price);
-            $menu->description = $request->description;
-            $menu->min_order = $request->min_order;
+            $request->pict->move($path, $filename);
             $menu->pict = $filename;
-            $menu->save();
-        } else {
-            $menu = new Menu;
-            $menu->name = $request->name;
-            $menu->price = str_replace(".", "", $request->price);
-            $menu->description = $request->description;
-            $menu->min_order = $request->min_order;
-            $menu->save();   
         }
-        return redirect()->route('food-menu.index')->with('success', 'New menu has beed added to the menu list.');
+
+        $menu->save();
+        return redirect()->route('food-menu.index')->with('success', 'Menu baru berhasil ditambahkan ke daftar menu.');
     }
 
     /**
@@ -97,28 +95,27 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $hasCategory = Schema::hasColumn('menu', 'category');
         $menu = Menu::find($id);
+        $menu->name = $request->name;
+        $menu->price = str_replace(".", "", $request->price);
+        $menu->description = $request->description;
+        $menu->min_order = $request->min_order ?: 1;
+
+        if ($hasCategory) {
+            $menu->category = $request->get('category', 'makanan');
+        }
+
         if ($request->hasFile('pict') && $request->file('pict')->isValid()) {
-            // Uploading
             $extension = $request->pict->extension();
             $filename = md5(time()) . '.' . $extension;
             $path = public_path('assets/pictures/menu');
-            $store = $request->pict->move($path, $filename);
-            // Saving
-            $menu->name = $request->name;
-            $menu->price = $request->price;
-            $menu->description = $request->description;
-            $menu->min_order = $request->min_order;
+            $request->pict->move($path, $filename);
             $menu->pict = $filename;
-            $menu->save();
-        } else {
-            $menu->name = $request->name;
-            $menu->price = $request->price;
-            $menu->description = $request->description;
-            $menu->min_order = $request->min_order;
-            $menu->save();   
         }
-        return redirect()->route('food-menu.index')->with('success', 'Menu has beed changed.');
+
+        $menu->save();
+        return redirect()->route('food-menu.index')->with('success', 'Data menu berhasil diperbarui.');
     }
 
     /**

@@ -36,6 +36,13 @@
                                         </div>
                                     </div>
                                     <div class="box-body">
+                                        <div style="margin-bottom: 6px;">
+                                            @if ($menu->category == 'minuman')
+                                                <span class="label label-info" style="font-size: 11px;"><i class="fa fa-glass"></i> Minuman</span>
+                                            @else
+                                                <span class="label label-success" style="font-size: 11px;"><i class="fa fa-cutlery"></i> Makanan</span>
+                                            @endif
+                                        </div>
                                         <h4 style="margin-top: 0;"><strong>{{ $menu->name }}</strong></h4>
                                         <p>
                                             <strong>Price :  </strong>  
@@ -98,6 +105,13 @@
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" class="form-control" name="name" placeholder="Enter the name of new menu..." required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label>Kategori</label>
+                                    <select name="category" class="form-control" required="required">
+                                        <option value="makanan">🍲 Makanan (Paket Nasi / Lauk / Hidangan)</option>
+                                        <option value="minuman">🥤 Minuman (Es Teh / Kopi / Jus / Air Mineral)</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Price</label>

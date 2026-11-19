@@ -8,6 +8,13 @@
                 <input type="text" class="form-control" name="name" placeholder="Enter the name of new menu..." value="{{ $menu->name }}" required="required">
             </div>
             <div class="form-group">
+                <label>Kategori</label>
+                <select name="category" class="form-control" required="required">
+                    <option value="makanan" {{ $menu->category == 'makanan' ? 'selected' : '' }}>🍲 Makanan (Paket Nasi / Lauk / Hidangan)</option>
+                    <option value="minuman" {{ $menu->category == 'minuman' ? 'selected' : '' }}>🥤 Minuman (Es Teh / Kopi / Jus / Air Mineral)</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Price</label>
                 <div class="input-group">
                     <div class="input-group-addon">

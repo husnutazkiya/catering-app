@@ -128,6 +128,78 @@
         box-shadow: 0 4px 10px rgba(34, 113, 78, 0.3) !important;
     }
 
+    /* Tab Pilihan Kategori (Makanan & Minuman) */
+    .category-tabs-wrap {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 22px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .category-tab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none !important;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+        border: 1.5px solid #e2e8f0;
+        background: #f8fafc;
+        color: #475569;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .category-tab-btn:hover {
+        background: #eaf5ee;
+        border-color: #22714e;
+        color: #22714e;
+    }
+    .category-tab-btn.active {
+        background: #22714e !important;
+        border-color: #22714e !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(34, 113, 78, 0.3) !important;
+    }
+    .category-tab-btn .tab-count {
+        font-size: 11px;
+        padding: 2px 7px;
+        border-radius: 12px;
+        background: #e2e8f0;
+        color: #475569;
+        font-weight: 800;
+        transition: all 0.2s ease;
+    }
+    .category-tab-btn.active .tab-count {
+        background: rgba(255, 255, 255, 0.28);
+        color: #ffffff;
+    }
+
+    /* Badge Tag Kategori di Atas Gambar */
+    .badge-cat-tag {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 20px;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .badge-cat-makanan {
+        background: rgba(34, 113, 78, 0.9);
+        color: #ffffff;
+    }
+    .badge-cat-minuman {
+        background: rgba(14, 116, 144, 0.9);
+        color: #ffffff;
+    }
+
     /* Penyesuaian Khusus Layar HP / Mobile (< 768px) */
     @media (max-width: 767px) {
         .menu-grid-row {
@@ -217,7 +289,7 @@
             @endif
 
             {{-- Header Title --}}
-            <div style="margin-bottom: 20px; border-bottom: 2px solid #eaedf2; padding-bottom: 12px;">
+            <div style="margin-bottom: 16px; border-bottom: 2px solid #eaedf2; padding-bottom: 12px;">
                 <h2 style="font-weight: 800; color: #1e293b; margin: 0 0 6px 0; font-size: 22px;">
                     <i class="fa fa-cutlery text-primary" style="margin-right: 8px;"></i>Daftar Menu Katering
                 </h2>
@@ -226,21 +298,58 @@
                 </p>
             </div>
 
+            {{-- Tab Pilihan Kategori: Semua, Makanan, Minuman --}}
+            <div class="category-tabs-wrap">
+                <a href="{{ url('/home?' . http_build_query(array_merge(request()->except('page', 'category'), ['category' => 'all']))) }}" 
+                   class="category-tab-btn {{ $activeCategory === 'all' ? 'active' : '' }}" 
+                   data-cat="all">
+                    <span>🍽️ Semua Menu</span>
+                    <span class="tab-count">{{ $countAll }}</span>
+                </a>
+                
+                <a href="{{ url('/home?' . http_build_query(array_merge(request()->except('page', 'category'), ['category' => 'makanan']))) }}" 
+                   class="category-tab-btn {{ $activeCategory === 'makanan' ? 'active' : '' }}" 
+                   data-cat="makanan">
+                    <span>🍲 Makanan</span>
+                    <span class="tab-count">{{ $countMakanan }}</span>
+                </a>
+
+                <a href="{{ url('/home?' . http_build_query(array_merge(request()->except('page', 'category'), ['category' => 'minuman']))) }}" 
+                   class="category-tab-btn {{ $activeCategory === 'minuman' ? 'active' : '' }}" 
+                   data-cat="minuman">
+                    <span>🥤 Minuman</span>
+                    <span class="tab-count">{{ $countMinuman }}</span>
+                </a>
+            </div>
+
             {{-- Grid Menu: 2 Kolom di HP (col-xs-6), 3 Kolom di Tablet/Desktop (col-sm-4 col-md-4) --}}
             @if ($menus->count() > 0)
-                <div class="row menu-grid-row">
+                <div class="row menu-grid-row" id="menuGridContainer">
                     @foreach ($menus as $menu)
-                        <div class="col-xs-6 col-sm-4 col-md-4 menu-grid-col">
+                        <div class="col-xs-6 col-sm-4 col-md-4 menu-grid-col" data-category="{{ $menu->category }}">
                             <div class="menu-card-compact">
                                 {{-- Thumbnail Gambar --}}
                                 <div class="menu-img-wrap">
                                     <a href="{{ route('getOrder', $menu->id) }}">
-                                        @if ($menu->pict && file_exists(public_path('assets/pictures/menu/' . $menu->pict)))
-                                            <img src="{{ asset('assets/pictures/menu/' . $menu->pict) }}" alt="{{ $menu->name }}" class="menu-img">
+                                        @if ($menu->pict)
+                                            <img src="{{ asset('assets/pictures/menu/' . $menu->pict) }}" 
+                                                alt="{{ $menu->name }}" 
+                                                class="menu-img"
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/pictures/profile.jpg') }}';">
                                         @else
-                                            <img src="{{ asset('assets/pictures/profile.jpg') }}" alt="{{ $menu->name }}" class="menu-img">
+                                            <img src="{{ asset('assets/pictures/profile.jpg') }}" 
+                                                alt="{{ $menu->name }}" 
+                                                class="menu-img">
                                         @endif
                                     </a>
+                                    
+                                    {{-- Tag Kategori --}}
+                                    @if ($menu->category === 'minuman')
+                                        <span class="badge-cat-tag badge-cat-minuman"><i class="fa fa-glass"></i> Minuman</span>
+                                    @else
+                                        <span class="badge-cat-tag badge-cat-makanan"><i class="fa fa-cutlery"></i> Makanan</span>
+                                    @endif
+
                                     <span class="badge-min-order">
                                         Min. {{ $menu->min_order }} porsi
                                     </span>
@@ -280,11 +389,29 @@
                     {{ $menus->links() }}
                 </div>
             @else
-                <div class="text-center" style="padding: 50px 20px; background: white; border-radius: 10px; border: 1px dashed #cbd5e1;">
+                <div class="text-center" style="padding: 50px 20px; background: white; border-radius: 10px; border: 1px dashed #cbd5e1; margin-top: 15px;">
                     <i class="fa fa-cutlery" style="font-size: 42px; color: #cbd5e1; margin-bottom: 12px;"></i>
-                    <h4 style="color: #64748b; font-weight: 700;">Belum Ada Menu Katering</h4>
-                    <p style="color: #94a3b8; font-size: 13px;">Silakan tambahkan menu melalui dashboard admin atau seeder.</p>
-                    @if (Auth::check() && Auth::user()->hasAdmin())
+                    <h4 style="color: #64748b; font-weight: 700;">
+                        @if ($activeCategory === 'minuman')
+                            Belum Ada Menu Minuman
+                        @elseif ($activeCategory === 'makanan')
+                            Belum Ada Menu Makanan
+                        @else
+                            Belum Ada Menu Katering
+                        @endif
+                    </h4>
+                    <p style="color: #94a3b8; font-size: 13px;">
+                        @if ($activeCategory !== 'all')
+                            Silakan pilih kategori lainnya atau lihat seluruh menu katering kami.
+                        @else
+                            Silakan tambahkan menu melalui dashboard admin atau seeder.
+                        @endif
+                    </p>
+                    @if ($activeCategory !== 'all')
+                        <a href="{{ url('/home' . (session('table_no') ? '?table='.urlencode(session('table_no')) : '')) }}" class="btn btn-primary btn-sm" style="margin-top: 8px;">
+                            <i class="fa fa-th-large"></i> Lihat Semua Menu
+                        </a>
+                    @elseif (Auth::check() && Auth::user()->hasAdmin())
                         <a href="{{ route('all-menu') }}" class="btn btn-primary btn-sm" style="margin-top: 8px;">
                             <i class="fa fa-plus"></i> Tambah Menu di Admin
                         </a>
